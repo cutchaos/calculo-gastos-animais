@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+
+    char tipoAnimal[30];
+    int quantidade;
+    float custoPorKilo;
+    float consumoPorAnimal = 0;
+    float consumoDia, consumoMes, custoMes;
+
+    printf("Animais cadastrados: Leopardo, Leao, Elefante, Macaco, Girafa \n");
+    printf("Digite o animal desejado pra consulta: ");
+    scanf("%s", tipoAnimal);
+
+    printf("Digite a quantidade de animais: ");
+    scanf("%d", &quantidade);
+
+    printf("Digite o custo estimado por kilo de comida: ");
+    scanf("%f", &custoPorKilo);
+
+    if (strcmp(tipoAnimal, "Leopardo") == 0) {
+        consumoPorAnimal = 5;
+    } else if (strcmp(tipoAnimal, "Leao") == 0) {
+        consumoPorAnimal = 7;
+    } else if (strcmp(tipoAnimal, "Elefante") == 0) {
+        consumoPorAnimal = 50;
+    } else if (strcmp(tipoAnimal, "Macaco") == 0) {
+        consumoPorAnimal = 2;
+    } else if (strcmp(tipoAnimal, "Girafa") == 0) {
+        consumoPorAnimal = 30;
+    } else {
+        printf("Animal nao cadastrado na tabela.\n");
+        return 1;
+    }
+
+    consumoDia = quantidade * consumoPorAnimal;
+    consumoMes = consumoDia * 30;
+    custoMes = consumoMes * custoPorKilo;
+
+    printf("\n--- Relatorio de Consumo ---\n");
+    printf("Animal: %s\n", tipoAnimal);
+    printf("Quantidade de animais: %d\n", quantidade);
+    printf("Consumo por animal (kg/dia): %.2f\n", consumoPorAnimal);
+    printf("Consumo total por dia (kg): %.2f\n", consumoDia);
+    printf("Consumo total por mes (kg): %.2f\n", consumoMes);
+    printf("Custo estimado por mes: R$ %.2f\n", custoMes);
+    return 0;
+}
